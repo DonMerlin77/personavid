@@ -140,8 +140,10 @@ def run_pipeline(
 
         # ── Stage 2: GENERATE ────────────────────────────────────────────────────
         if state["stage"] == "GENERATE":
-            print("\n[2/5] Submitting to Runway Gen-4.5...")
-            from generator import generate_with_runway, auto_select_source_image
+            print("\n[2/5] Submitting to Modal GPU (Wan-2.1)...")
+            from generator import auto_select_source_image
+            from modal_video import generate_video_modal
+
             source_image = state.get("source_image")
             if not source_image:
                 print("  Auto-selecting best source image...")
@@ -149,26 +151,19 @@ def run_pipeline(
                     state["final_prompt"], state["user_id"], verbose=True
                 )
                 state["source_image"] = source_image
-            job = generate_with_runway(
-                state["final_prompt"],
-                duration=10,
+
+            raw_path = str(ROOT / "outputs" / f"{state['job_id']}_raw.mp4")
+            local_path = generate_video_modal(
+                prompt=state["final_prompt"],
                 image_path=source_image,
+                output_path=raw_path,
             )
-            state["runway_url"] = job["output_url"]
-            state["stage"] = "DOWNLOAD"
+            state["local_video"] = local_path
+            state["stage"] = "EDIT"
             _save_state(state)
 
-        # ── Stage 3: DOWNLOAD ────────────────────────────────────────────────────
+        # ── Stage 3: DOWNLOAD (skipped — Modal returns file directly) ────────────
         if state["stage"] == "DOWNLOAD":
-            print("\n[3/5] Downloading video...")
-            out_dir = ROOT / "outputs"
-            local_path = str(out_dir / f"{job_id}_raw.mp4")
-            r = requests.get(state["runway_url"], timeout=120, stream=True)
-            r.raise_for_status()
-            with open(local_path, "wb") as f:
-                for chunk in r.iter_content(chunk_size=8192):
-                    f.write(chunk)
-            state["local_video"] = local_path
             state["stage"] = "EDIT"
             _save_state(state)
 

@@ -484,6 +484,23 @@ def generate_video(user_id: str, brief: str,
         if verbose:
             print(f"  ✅ Job submitted: {job}")
 
+    elif backend == "modal":
+        if verbose:
+            print("  Submitting to Modal GPU (Wan-2.1)...")
+        from modal_video import generate_video_modal
+        out_path = str(OUTPUTS / f"{user_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}_raw.mp4")
+        local_path = generate_video_modal(
+            prompt=final_prompt,
+            image_path=source_image,
+            output_path=out_path,
+            num_frames=81,
+            num_inference_steps=20,
+        )
+        result["local_video"] = local_path
+        result["output_url"] = f"file://{local_path}"
+        if verbose:
+            print(f"  Video saved: {local_path}")
+
     elif backend == "runway":
         if verbose:
             print("  Submitting to Runway Gen-4.5...")
