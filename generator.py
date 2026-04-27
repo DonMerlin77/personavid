@@ -419,7 +419,7 @@ def generate_video(user_id: str, brief: str,
 
     # ── Build prompt ────────────────────────────────────────────────────────────
     if verbose:
-        print("  🧠 Building personalized prompt...")
+        print("  Building personalized prompt...")
 
     # Inject reference descriptions into the brief
     enriched_brief = brief
@@ -432,6 +432,19 @@ def generate_video(user_id: str, brief: str,
             f"{brief}\n\n"
             f"IMPORTANT — use these exact visual references. "
             f"Do not change their species, type, or appearance:\n{ref_block}"
+        )
+
+    # Inject background scene context if any backgrounds are available
+    from backgrounds import get_scene_context
+    scene = get_scene_context(enriched_brief)
+    if scene and scene.get("prompt_context"):
+        if verbose:
+            print(f"  Background scene: {scene['name']} — {scene.get('mood', '')}")
+        enriched_brief = (
+            f"{enriched_brief}\n\n"
+            f"Scene/environment (from background reference '{scene['name']}'):\n"
+            f"{scene['prompt_context']}\n"
+            f"Lighting: {scene.get('lighting', '')}"
         )
 
     raw_prompt = build_generation_prompt(fp, enriched_brief, duration_sec=duration)
