@@ -1,0 +1,982 @@
+{
+  "user_id": "continuum_goods",
+  "created_at": "2026-04-11T10:01:52.022800",
+  "videos_analyzed": 15,
+  "style_fingerprint": {
+    "color_palette_counts": {
+      "#C4A882": 2,
+      "#8B6E4E": 2,
+      "#4A4A4A": 4,
+      "#D4A045": 1,
+      "#2C2C2C": 1,
+      "#D4875E": 1,
+      "#F5F0E8": 5,
+      "#2D3A4A": 1,
+      "#8B7D6B": 1,
+      "#C4A86B": 1,
+      "#D4C8B0": 1,
+      "#3D3D3D": 1,
+      "#F5A623": 1,
+      "#A0522D": 1,
+      "#5CB85C": 1,
+      "#F0C040": 1,
+      "#C8841A": 1,
+      "#3D2B1A": 1,
+      "#D4956B": 1,
+      "#8C8C8C": 1,
+      "#C8A882": 2,
+      "#FFFFFF": 3,
+      "#8B6B3D": 1,
+      "#9E9E9E": 1,
+      "#D4886B": 1,
+      "#D4956A": 2,
+      "#6B6B6B": 1,
+      "#E8D5BE": 1,
+      "#8B6F5E": 1,
+      "#C4793A": 1,
+      "#8A8578": 1,
+      "#87CEEB": 1,
+      "#5A7A3E": 1,
+      "#7B68EE": 1,
+      "#E8A035": 1,
+      "#C8A2E0": 1,
+      "#4A4A6A": 1,
+      "#4A4E8A": 1,
+      "#F5E6C8": 1,
+      "#7B6BBF": 1,
+      "#2C2E4A": 1,
+      "#C8A86E": 1,
+      "#C8722A": 1,
+      "#8B9EAA": 1,
+      "#6B4E37": 1,
+      "#D4874E": 1,
+      "#8B6B4A": 1,
+      "#4A6178": 1,
+      "#E8DDD0": 1,
+      "#F0EDE8": 1,
+      "#C0C0C0": 1,
+      "#2B2B2B": 1,
+      "#FF0000": 1,
+      "#FF8C00": 1,
+      "#C8A96E": 1,
+      "#2E7D32": 1,
+      "#D4A574": 1
+    },
+    "color_palette": [
+      "#F5F0E8",
+      "#4A4A4A",
+      "#FFFFFF",
+      "#C4A882",
+      "#8B6E4E",
+      "#C8A882",
+      "#D4956A",
+      "#D4A045"
+    ],
+    "subjects_counts": {
+      "cat": 12,
+      "person": 5,
+      "pet toys": 3,
+      "living room furniture": 3,
+      "person's hand": 1,
+      "frisbees": 1,
+      "bookshelves": 1,
+      "porch": 1,
+      "landscape": 1,
+      "blanket": 1,
+      "television": 1,
+      "living room": 1,
+      "product": 3,
+      "lamp": 1,
+      "bed": 2,
+      "bedroom": 2,
+      "faucet": 1,
+      "text overlay": 1,
+      "cutting board": 1,
+      "kitchen": 1,
+      "food": 1,
+      "knife": 1,
+      "vegetables": 1
+    },
+    "subjects": [
+      "cat",
+      "person",
+      "pet toys",
+      "living room furniture",
+      "product",
+      "bed",
+      "bedroom",
+      "person's hand"
+    ],
+    "aesthetic_keywords_counts": {
+      "casual": 11,
+      "cozy": 10,
+      "homey": 11,
+      "authentic": 7,
+      "candid": 5,
+      "relatable": 2,
+      "lo-fi": 2,
+      "raw": 4,
+      "wholesome": 1,
+      "unpolished": 2,
+      "playful": 3,
+      "organic": 2,
+      "warm": 4,
+      "amateur": 1,
+      "intimate": 4,
+      "heartwarming": 1,
+      "sunny": 1,
+      "personal": 1,
+      "rustic": 1,
+      "bright": 1,
+      "dreamy": 2,
+      "ambient": 2,
+      "ethereal": 1,
+      "magical": 1,
+      "nocturnal": 1,
+      "whimsical": 1,
+      "soft": 2,
+      "minimal": 1,
+      "clean": 2,
+      "commercial": 2,
+      "simple": 1,
+      "direct": 1,
+      "modern": 2,
+      "utilitarian": 1,
+      "sleek": 1,
+      "domestic": 1,
+      "aspirational": 1,
+      "polished": 1
+    },
+    "aesthetic_keywords": [
+      "casual",
+      "homey",
+      "cozy",
+      "authentic",
+      "candid",
+      "raw",
+      "warm",
+      "intimate"
+    ],
+    "ad_suitability_counts": {
+      "lifestyle": 13,
+      "product": 11,
+      "testimonial": 7,
+      "tutorial": 2
+    },
+    "ad_suitability": [
+      "lifestyle",
+      "product",
+      "testimonial",
+      "tutorial"
+    ],
+    "shot_types_counts": {
+      "medium": 12,
+      "close-up": 11,
+      "wide": 1
+    },
+    "shot_types": [
+      "medium",
+      "close-up",
+      "wide"
+    ],
+    "color_temperature_votes": {
+      "warm": 11,
+      "cool": 2,
+      "neutral": 1
+    },
+    "color_temperature": "warm",
+    "saturation_votes": {
+      "medium": 12,
+      "low": 2
+    },
+    "saturation": "medium",
+    "lighting_style_votes": {
+      "natural": 9,
+      "artificial": 4,
+      "studio": 1
+    },
+    "lighting_style": "natural",
+    "dominant_shot_votes": {
+      "medium": 9,
+      "close-up": 5
+    },
+    "dominant_shot": "medium",
+    "composition_style_votes": {
+      "dynamic": 7,
+      "centered": 7
+    },
+    "composition_style": "dynamic",
+    "motion_style_votes": {
+      "handheld": 11,
+      "static": 2,
+      "smooth_pan": 1
+    },
+    "motion_style": "handheld",
+    "setting_votes": {
+      "indoor": 11,
+      "outdoor": 2,
+      "studio": 1
+    },
+    "setting": "indoor",
+    "mood_votes": {
+      "calm": 8,
+      "playful": 4,
+      "professional": 1,
+      "aspirational": 1
+    },
+    "mood": "calm",
+    "editing_pace_votes": {
+      "slow": 11,
+      "medium": 2,
+      "fast": 1
+    },
+    "editing_pace": "slow",
+    "lighting_notes": "Soft, even indoor kitchen lighting with warm undertones and subtle backlighting on marble surfaces.",
+    "brand_feel": "A premium kitchen product brand targeting modern home cooks who value both aesthetics and functionality.",
+    "top_performer": {
+      "filename": "cash_harness_1100.mov",
+      "instagram_views": 1138,
+      "format": "real product on cat, handheld, natural light, indoor with boho rug background",
+      "lesson": "Product-on-cat format outperforms all other content types by 10x. Prioritize this format for every cat product launch."
+    }
+  },
+  "video_history": [
+    {
+      "filename": "carter_cash_relaxing.mp4",
+      "analyzed_at": "2026-04-11T10:01:52.022833",
+      "duration_sec": 22.1,
+      "analysis": {
+        "color_palette": [
+          "#C4A882",
+          "#8B6E4E",
+          "#4A4A4A",
+          "#D4A045",
+          "#2C2C2C"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Soft indoor ambient lighting with natural light from windows creating an even, slightly warm illumination across the living room space.",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "person",
+          "pet toys",
+          "living room furniture"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "casual",
+          "cozy",
+          "homey",
+          "authentic",
+          "candid",
+          "relatable",
+          "lo-fi"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A pet lifestyle or pet product brand targeting millennial/Gen-Z pet owners who value authentic, unpolished content.",
+        "ad_suitability": [
+          "lifestyle",
+          "product"
+        ]
+      }
+    },
+    {
+      "filename": "carter_shoulder_video.MP4",
+      "analyzed_at": "2026-04-11T10:02:02.109422",
+      "duration_sec": 14.5,
+      "analysis": {
+        "color_palette": [
+          "#4A4A4A",
+          "#D4875E",
+          "#F5F0E8",
+          "#2D3A4A",
+          "#8B7D6B"
+        ],
+        "color_temperature": "warm",
+        "saturation": "low",
+        "lighting_style": "artificial",
+        "lighting_notes": "Dim indoor overhead artificial lighting with a warm cast, creating soft shadows and slightly underexposed conditions typical of casual home filming.",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "centered",
+        "motion_style": "handheld",
+        "subjects": [
+          "person",
+          "cat"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "casual",
+          "cozy",
+          "authentic",
+          "homey",
+          "raw",
+          "relatable",
+          "wholesome"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A pet care or pet lifestyle brand that values authentic, unpolished user-generated content to connect emotionally with pet owners.",
+        "ad_suitability": [
+          "lifestyle",
+          "testimonial"
+        ]
+      }
+    },
+    {
+      "filename": "Screen Recording 2026-04-09 165252.mp4",
+      "analyzed_at": "2026-04-11T10:02:10.098726",
+      "duration_sec": 22.1,
+      "analysis": {
+        "color_palette": [
+          "#C4A86B",
+          "#8B6E4E",
+          "#D4C8B0",
+          "#3D3D3D",
+          "#F5A623"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Ambient indoor natural light with slightly warm tones, no harsh shadows, typical of a casually lit living room",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "pet toys",
+          "person's hand",
+          "living room furniture"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "casual",
+          "cozy",
+          "homey",
+          "authentic",
+          "unpolished",
+          "playful",
+          "organic"
+        ],
+        "mood": "playful",
+        "editing_pace": "medium",
+        "brand_feel": "A pet product or lifestyle brand targeting millennial pet owners who value authenticity and relatable, unfiltered content",
+        "ad_suitability": [
+          "product",
+          "lifestyle"
+        ]
+      }
+    },
+    {
+      "filename": "carter_ath_scholar.MOV",
+      "analyzed_at": "2026-04-11T10:31:34.015342",
+      "duration_sec": 16.7,
+      "analysis": {
+        "color_palette": [
+          "#C4A882",
+          "#A0522D",
+          "#4A4A4A",
+          "#5CB85C",
+          "#F0C040"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Soft indoor natural light creating warm, slightly overexposed highlights on the beige carpet with gentle shadows.",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "frisbees",
+          "living room furniture",
+          "bookshelves"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "casual",
+          "homey",
+          "candid",
+          "playful",
+          "warm",
+          "amateur",
+          "cozy"
+        ],
+        "mood": "playful",
+        "editing_pace": "slow",
+        "brand_feel": "A pet product or pet lifestyle brand targeting casual, relatable cat owners who share everyday moments on social media.",
+        "ad_suitability": [
+          "lifestyle",
+          "product",
+          "testimonial"
+        ]
+      }
+    },
+    {
+      "filename": "carter_bonding.MOV",
+      "analyzed_at": "2026-04-11T10:32:02.187588",
+      "duration_sec": 24.6,
+      "analysis": {
+        "color_palette": [
+          "#C8841A",
+          "#F5F0E8",
+          "#3D2B1A",
+          "#D4956B",
+          "#8C8C8C"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Soft natural daylight coming from a window to the left, creating a warm and cozy ambient glow with gentle shadows.",
+        "shot_types": [
+          "close-up"
+        ],
+        "dominant_shot": "close-up",
+        "composition_style": "centered",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "person"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "cozy",
+          "intimate",
+          "homey",
+          "casual",
+          "authentic",
+          "heartwarming",
+          "raw"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A pet product or pet lifestyle brand targeting everyday pet owners who value authentic, relatable content over polished production.",
+        "ad_suitability": [
+          "lifestyle",
+          "product",
+          "testimonial"
+        ]
+      }
+    },
+    {
+      "filename": "carter_outside.MOV",
+      "analyzed_at": "2026-04-11T10:32:32.267659",
+      "duration_sec": 67.2,
+      "analysis": {
+        "color_palette": [
+          "#C8A882",
+          "#FFFFFF",
+          "#8B6B3D",
+          "#9E9E9E",
+          "#D4886B"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Bright midday sunlight with strong harsh shadows cast through deck railing and patio furniture, creating high-contrast dappled light patterns.",
+        "shot_types": [
+          "close-up"
+        ],
+        "dominant_shot": "close-up",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "person"
+        ],
+        "setting": "outdoor",
+        "aesthetic_keywords": [
+          "casual",
+          "sunny",
+          "raw",
+          "candid",
+          "homey",
+          "warm",
+          "personal"
+        ],
+        "mood": "playful",
+        "editing_pace": "slow",
+        "brand_feel": "A pet care or lifestyle brand targeting everyday pet owners who value authentic, unpolished moments with their animals.",
+        "ad_suitability": [
+          "lifestyle",
+          "testimonial"
+        ]
+      }
+    },
+    {
+      "filename": "cash_and _carter_hanging.MOV",
+      "analyzed_at": "2026-04-11T10:33:19.157144",
+      "duration_sec": 25.5,
+      "analysis": {
+        "color_palette": [
+          "#C8A882",
+          "#D4956A",
+          "#6B6B6B",
+          "#E8D5BE",
+          "#8B6F5E"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Warm natural daylight streaming in from a window, creating soft highlights and gentle shadows across the living room carpet.",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "pet toys",
+          "person"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "casual",
+          "homey",
+          "candid",
+          "raw",
+          "playful",
+          "authentic",
+          "cozy"
+        ],
+        "mood": "playful",
+        "editing_pace": "medium",
+        "brand_feel": "A pet product or pet lifestyle brand targeting everyday cat owners who value authentic, relatable content.",
+        "ad_suitability": [
+          "product",
+          "lifestyle",
+          "testimonial"
+        ]
+      }
+    },
+    {
+      "filename": "cash_carter_on_deck.MOV",
+      "analyzed_at": "2026-04-11T10:34:04.323050",
+      "duration_sec": 34.1,
+      "analysis": {
+        "color_palette": [
+          "#C4793A",
+          "#F5F0E8",
+          "#8A8578",
+          "#87CEEB",
+          "#5A7A3E"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Bright overcast daylight with soft shadows, slightly blown-out highlights typical of midday outdoor phone footage",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "porch",
+          "landscape"
+        ],
+        "setting": "outdoor",
+        "aesthetic_keywords": [
+          "casual",
+          "homey",
+          "organic",
+          "candid",
+          "rustic",
+          "bright",
+          "unpolished"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A pet-focused lifestyle brand or cozy rural living social media account emphasizing authentic everyday moments",
+        "ad_suitability": [
+          "lifestyle",
+          "testimonial"
+        ]
+      }
+    },
+    {
+      "filename": "sleepy_b.MOV",
+      "analyzed_at": "2026-04-11T10:34:30.827840",
+      "duration_sec": 16.8,
+      "analysis": {
+        "color_palette": [
+          "#7B68EE",
+          "#E8A035",
+          "#C8A2E0",
+          "#4A4A6A",
+          "#D4956A"
+        ],
+        "color_temperature": "cool",
+        "saturation": "medium",
+        "lighting_style": "artificial",
+        "lighting_notes": "A star/galaxy projector casts purple and blue nebula-like light across the ceiling and walls, mixed with warm ambient light from the kitchen area.",
+        "shot_types": [
+          "medium"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "blanket",
+          "television",
+          "living room"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "cozy",
+          "dreamy",
+          "ambient",
+          "casual",
+          "intimate",
+          "lo-fi",
+          "homey"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A cozy home lifestyle or galaxy projector brand targeting young adults who enjoy ambient, relaxed living spaces.",
+        "ad_suitability": [
+          "product",
+          "lifestyle"
+        ]
+      }
+    },
+    {
+      "filename": "moon_lamp_ad.mp4",
+      "analyzed_at": "2026-04-11T11:28:39.614777",
+      "duration_sec": 5.0,
+      "analysis": {
+        "color_palette": [
+          "#4A4E8A",
+          "#F5E6C8",
+          "#7B6BBF",
+          "#2C2E4A",
+          "#C8A86E"
+        ],
+        "color_temperature": "cool",
+        "saturation": "medium",
+        "lighting_style": "artificial",
+        "lighting_notes": "The moon lamp serves as the primary warm light source, casting a soft glow on the table surface while projected purple/violet light dots create an ambient starfield effect on the dark blue-gray wall.",
+        "shot_types": [
+          "medium"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "centered",
+        "motion_style": "static",
+        "subjects": [
+          "product",
+          "lamp",
+          "cat"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "dreamy",
+          "ambient",
+          "cozy",
+          "ethereal",
+          "magical",
+          "nocturnal",
+          "whimsical"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A whimsical home decor or novelty lighting brand targeting consumers who value ambient atmosphere and cozy bedroom aesthetics.",
+        "ad_suitability": [
+          "product",
+          "lifestyle"
+        ]
+      }
+    },
+    {
+      "filename": "carter_sassy_video.mp4",
+      "analyzed_at": "2026-04-23T17:54:41.721043",
+      "duration_sec": 10.0,
+      "analysis": {
+        "color_palette": [
+          "#F5F0E8",
+          "#C8722A",
+          "#8B9EAA",
+          "#6B4E37",
+          "#FFFFFF"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Soft natural daylight from a window mixed with a warm bedside lamp creating gentle, diffused bedroom lighting",
+        "shot_types": [
+          "wide",
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "close-up",
+        "composition_style": "centered",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "bed",
+          "bedroom"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "cozy",
+          "intimate",
+          "homey",
+          "casual",
+          "soft",
+          "warm",
+          "authentic"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A pet care or home comfort brand that emphasizes warmth, coziness, and the joy of everyday life with pets",
+        "ad_suitability": [
+          "lifestyle",
+          "product"
+        ]
+      }
+    },
+    {
+      "filename": "Carter_approved_vid.mov",
+      "analyzed_at": "2026-04-23T17:54:51.199166",
+      "duration_sec": 7.0,
+      "analysis": {
+        "color_palette": [
+          "#D4874E",
+          "#F5F0E8",
+          "#8B6B4A",
+          "#4A6178",
+          "#E8DDD0"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Soft natural daylight mixed with a warm bedside lamp creates a cozy, diffused bedroom ambiance with no harsh shadows.",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "close-up",
+        "composition_style": "centered",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "bed",
+          "bedroom"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "cozy",
+          "homey",
+          "casual",
+          "warm",
+          "intimate",
+          "authentic",
+          "soft"
+        ],
+        "mood": "calm",
+        "editing_pace": "slow",
+        "brand_feel": "A pet-focused lifestyle or home goods brand that emphasizes comfort, warmth, and the joy of everyday moments with pets.",
+        "ad_suitability": [
+          "lifestyle",
+          "product",
+          "testimonial"
+        ]
+      }
+    },
+    {
+      "filename": "sink_ad.mp4",
+      "analyzed_at": "2026-04-23T17:55:02.887273",
+      "duration_sec": 31.4,
+      "analysis": {
+        "color_palette": [
+          "#F0EDE8",
+          "#C0C0C0",
+          "#2B2B2B",
+          "#FF0000",
+          "#FF8C00"
+        ],
+        "color_temperature": "neutral",
+        "saturation": "low",
+        "lighting_style": "studio",
+        "lighting_notes": "Clean, even studio-style lighting on a white/off-white background with no visible shadows, typical of product rendering or catalog photography.",
+        "shot_types": [
+          "medium"
+        ],
+        "dominant_shot": "medium",
+        "composition_style": "centered",
+        "motion_style": "static",
+        "subjects": [
+          "product",
+          "faucet",
+          "text overlay"
+        ],
+        "setting": "studio",
+        "aesthetic_keywords": [
+          "minimal",
+          "clean",
+          "commercial",
+          "simple",
+          "direct",
+          "modern",
+          "utilitarian"
+        ],
+        "mood": "professional",
+        "editing_pace": "slow",
+        "brand_feel": "A direct-to-consumer home improvement or kitchen gadget brand selling via social media with bold, no-frills product presentations.",
+        "ad_suitability": [
+          "product",
+          "tutorial"
+        ]
+      }
+    },
+    {
+      "filename": "PixVerse_V6_Image_Text_720P_HOOK_03s__This_is_.mp4",
+      "analyzed_at": "2026-04-23T17:55:12.966284",
+      "duration_sec": 7.0,
+      "analysis": {
+        "color_palette": [
+          "#FFFFFF",
+          "#C8A96E",
+          "#4A4A4A",
+          "#2E7D32",
+          "#D4A574"
+        ],
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "artificial",
+        "lighting_notes": "Soft, even indoor kitchen lighting with warm undertones and subtle backlighting on marble surfaces.",
+        "shot_types": [
+          "close-up",
+          "medium"
+        ],
+        "dominant_shot": "close-up",
+        "composition_style": "centered",
+        "motion_style": "smooth_pan",
+        "subjects": [
+          "product",
+          "cutting board",
+          "kitchen",
+          "food",
+          "knife",
+          "vegetables"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "clean",
+          "modern",
+          "commercial",
+          "sleek",
+          "domestic",
+          "aspirational",
+          "polished"
+        ],
+        "mood": "aspirational",
+        "editing_pace": "fast",
+        "brand_feel": "A premium kitchen product brand targeting modern home cooks who value both aesthetics and functionality.",
+        "ad_suitability": [
+          "product",
+          "lifestyle",
+          "tutorial"
+        ]
+      }
+    },
+    {
+      "filename": "cash_harness_1100.mov",
+      "analyzed_at": "2026-04-25T20:56:55.068275",
+      "duration_sec": null,
+      "performance": {
+        "instagram_views": 1138,
+        "tiktok_views": 127,
+        "platform_note": "Best performing video in catalog by 10x on Instagram"
+      },
+      "analysis": {
+        "color_temperature": "warm",
+        "saturation": "medium",
+        "lighting_style": "natural",
+        "lighting_notes": "Natural outdoor/indoor light on cat wearing harness \u2014 boho patterned rug background",
+        "shot_types": [
+          "medium",
+          "close-up"
+        ],
+        "dominant_shot": "close-up",
+        "composition_style": "dynamic",
+        "motion_style": "handheld",
+        "subjects": [
+          "cat",
+          "harness",
+          "person"
+        ],
+        "setting": "indoor",
+        "aesthetic_keywords": [
+          "authentic",
+          "casual",
+          "cozy",
+          "homey",
+          "warm",
+          "candid"
+        ],
+        "mood": "playful",
+        "editing_pace": "slow",
+        "brand_feel": "Real cat, real product, real home \u2014 the format that converts",
+        "ad_suitability": [
+          "product",
+          "lifestyle",
+          "testimonial"
+        ],
+        "format_lesson": "Real product on real cat = highest organic reach. Replicate this exact format: cat wearing/using product, handheld, natural light, boho home background."
+      }
+    }
+  ],
+  "updated_at": "2026-04-25T20:56:55.068288",
+  "references": {
+    "carter": {
+      "filename": "carter.png",
+      "description": "A large, stocky orange-and-white tabby cat with a predominantly white chest, belly, and paws, and warm ginger-orange patches covering the top of the head, ears, and back, with a distinct orange patch over the right eye and a white blaze down the nose. The cat has round green-gray eyes, long white whiskers, a pink nose, and soft short-to-medium dense fur with a slightly plush texture, lit by warm indoor ambient lighting that highlights the contrast between the bright white and rich orange patches. The cat is being held upright against a person's chest, front paws draped forward, with a relaxed but alert forward-facing expression and a solidly built, medium-large body.",
+      "added_at": "2026-04-11T12:08:04.255853"
+    },
+    "moon_lamp_product": {
+      "filename": "Screenshot 2026-04-11 111809.png",
+      "description": "A large spherical moon lamp approximately 10-12 inches in diameter, glowing with a warm soft white light, featuring a realistic lunar surface texture with subtle bumpy craters and swirling nebula-like ridges in muted cream and pale gray tones. The lamp sits on a small transparent acrylic circular base atop a dark charcoal-black table surface, casting a gentle ambient glow against a deep slate-blue wall behind it. The surface texture is matte and slightly translucent with organic, cloud-like fibrous patterns that diffuse the internal light source evenly across the entire sphere, brightest at center and softly dimming toward the edges.",
+      "added_at": "2026-04-11T12:10:34.249689"
+    },
+    "cash": {
+      "filename": "Screenshot 2026-04-11 121234.png",
+      "description": "A stocky orange tabby cat with warm ginger-and-cream striped fur, distinct dark orange mackerel tabby markings on the head and body, white paws, and a pale cream underbelly, lying in a relaxed sphinx-like pose on beige-gray carpet. The cat has round yellow-green eyes, a broad face with subtle tabby \"M\" marking on the forehead, pink-lined upright ears, and a slightly chunky build. Soft indoor ambient lighting casts even, diffused illumination across the fur, highlighting the alternating bands of deep orange and lighter peachy-cream stripes throughout the coat.",
+      "added_at": "2026-04-11T12:13:21.272695"
+    },
+    "cool_products_on_shelf": {
+      "filename": "Screenshot 2026-04-11 121443.png",
+      "description": "A long, low black metal-and-dark-wood industrial shelving unit against a warm tan/brown wall, filled with an eclectic mix of books, crystals, ceramic animal figurines, a small blue bonsai pot, a woven basket of stones, and an \"Our Adventure Book\" scrapbook, topped with trailing green pothos plants, a vinyl record turntable, a white BlissLights Sky projector emitting blue-purple light, and a large leafy faux bird-of-paradise in a white ribbed pot. Above hangs a bold Van Gogh-style oil painting of a close-up dinosaur/raptor face in swirling deep blues, greens, and burnt orange, while a wooden X-frame plant stand to the left holds more monstera and small quirky d\u00e9cor including a ceramic mouth wall sculpture. Soft warm ambient lighting comes from the left side with a subtle orange glow, gray carpet below, and the overall scene is lit with natural overhead room light creating gentle shadows across the shelves.",
+      "added_at": "2026-04-11T12:16:25.462065"
+    },
+    "carter_ledge": {
+      "filename": "carter_ledge.png",
+      "description": "A cat with a stocky, medium-sized build featuring a vivid orange-and-white bicolor coat \u2014 bright ginger-orange covering the back, head, and tail with a crisp white chest, belly, paws, and muzzle blaze \u2014 short dense fur, pale green eyes, a pink nose, and long white whiskers. The cat is perched alertly on a light tan stone ledge beside a dark brown wooden porch column, body slightly crouched and gazing upward to the left, lit by soft overcast daylight with bare winter branches in the background.",
+      "added_at": "2026-04-27T15:49:40.757805"
+    }
+  }
+}
