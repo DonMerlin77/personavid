@@ -1,0 +1,29 @@
+{
+  "user_id": "default",
+  "created_at": "2026-04-11T12:08:04.255835",
+  "videos_analyzed": 0,
+  "style_fingerprint": {},
+  "video_history": [],
+  "references": {
+    "carter": {
+      "filename": "carter.png",
+      "description": "A large, stocky orange-and-white tabby cat with a predominantly white chest, belly, and paws, and warm ginger-orange patches covering the top of the head, ears, and back, with a distinct orange patch over the right eye and a white blaze down the nose. The cat has round green-gray eyes, long white whiskers, a pink nose, and soft short-to-medium dense fur with a slightly plush texture, lit by warm indoor ambient lighting that highlights the contrast between the bright white and rich orange patches. The cat is being held upright against a person's chest, front paws draped forward, with a relaxed but alert forward-facing expression and a solidly built, medium-large body.",
+      "added_at": "2026-04-11T12:08:04.255853"
+    },
+    "moon_lamp_product": {
+      "filename": "Screenshot 2026-04-11 111809.png",
+      "description": "A large spherical moon lamp approximately 10-12 inches in diameter, glowing with a warm soft white light, featuring a realistic lunar surface texture with subtle bumpy craters and swirling nebula-like ridges in muted cream and pale gray tones. The lamp sits on a small transparent acrylic circular base atop a dark charcoal-black table surface, casting a gentle ambient glow against a deep slate-blue wall behind it. The surface texture is matte and slightly translucent with organic, cloud-like fibrous patterns that diffuse the internal light source evenly across the entire sphere, brightest at center and softly dimming toward the edges.",
+      "added_at": "2026-04-11T12:10:34.249689"
+    },
+    "cash": {
+      "filename": "Screenshot 2026-04-11 121234.png",
+      "description": "A stocky orange tabby cat with warm ginger-and-cream striped fur, distinct dark orange mackerel tabby markings on the head and body, white paws, and a pale cream underbelly, lying in a relaxed sphinx-like pose on beige-gray carpet. The cat has round yellow-green eyes, a broad face with subtle tabby \"M\" marking on the forehead, pink-lined upright ears, and a slightly chunky build. Soft indoor ambient lighting casts even, diffused illumination across the fur, highlighting the alternating bands of deep orange and lighter peachy-cream stripes throughout the coat.",
+      "added_at": "2026-04-11T12:13:21.272695"
+    },
+    "cool_products_on_shelf": {
+      "filename": "Screenshot 2026-04-11 121443.png",
+      "description": "A long, low black metal-and-dark-wood industrial shelving unit against a warm tan/brown wall, filled with an eclectic mix of books, crystals, ceramic animal figurines, a small blue bonsai pot, a woven basket of stones, and an \"Our Adventure Book\" scrapbook, topped with trailing green pothos plants, a vinyl record turntable, a white BlissLights Sky projector emitting blue-purple light, and a large leafy faux bird-of-paradise in a white ribbed pot. Above hangs a bold Van Gogh-style oil painting of a close-up dinosaur/raptor face in swirling deep blues, greens, and burnt orange, while a wooden X-frame plant stand to the left holds more monstera and small quirky d\u00e9cor including a ceramic mouth wall sculpture. Soft warm ambient lighting comes from the left side with a subtle orange glow, gray carpet below, and the overall scene is lit with natural overhead room light creating gentle shadows across the shelves.",
+      "added_at": "2026-04-11T12:16:25.462065"
+    }
+  }
+}

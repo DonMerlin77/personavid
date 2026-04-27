@@ -58,8 +58,9 @@ def _load_state(job_id: str) -> dict | None:
 
 
 def _generate_caption(brief: str, platform: str, user_id: str) -> str:
-    """Generate a Carter-voice caption using Claude Haiku."""
+    """Generate a Carter-voice caption using Claude Haiku + personavid brain."""
     import anthropic
+    from brain import video_brain
     client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
     platform_rules = {
@@ -71,11 +72,11 @@ def _generate_caption(brief: str, platform: str, user_id: str) -> str:
     response = client.messages.create(
         model="claude-haiku-4-5-20251001",
         max_tokens=200,
+        system=video_brain(include_trends=True),
         messages=[{
             "role": "user",
             "content": (
                 f"Write a social media caption for Continuum Goods.\n"
-                f"Brand mascot: Carter the opinionated orange tabby cat.\n"
                 f"Platform rules: {platform_rules.get(platform, 'short, punchy, one CTA')}\n"
                 f"Creative brief: {brief}\n"
                 f"Output ONLY the caption text, nothing else."
@@ -138,11 +139,13 @@ def run_pipeline(
             state["stage"] = "GENERATE"
             _save_state(state)
 
-        # ── Stage 2: GENERATE ────────────────────────────────────────────────────
+        # ── Stage 2: GENERATE (with rejection sampling) ─────────────────────────
         if state["stage"] == "GENERATE":
             print("\n[2/5] Submitting to Modal GPU (Wan-2.1)...")
             from generator import auto_select_source_image
             from modal_video import generate_video_modal
+            from scorer import score_video, mutate_prompt, SCORE_THRESHOLD
+            from prompt_bank import add_prompt
 
             source_image = state.get("source_image")
             if not source_image:
@@ -152,13 +155,45 @@ def run_pipeline(
                 )
                 state["source_image"] = source_image
 
-            raw_path = str(ROOT / "outputs" / f"{state['job_id']}_raw.mp4")
-            local_path = generate_video_modal(
-                prompt=state["final_prompt"],
-                image_path=source_image,
-                output_path=raw_path,
-            )
-            state["local_video"] = local_path
+            active_prompt = state["final_prompt"]
+            best_video = None
+            best_score = None
+            max_attempts = state.get("max_generate_attempts", 3)
+
+            for attempt in range(1, max_attempts + 1):
+                seed = 42 + (attempt - 1) * 13  # deterministic but varied
+                print(f"\n  [Generate] Attempt {attempt}/{max_attempts} (seed={seed})...")
+                raw_path = str(ROOT / "outputs" / f"{state['job_id']}_raw_attempt{attempt}.mp4")
+
+                generate_video_modal(
+                    prompt=active_prompt,
+                    image_path=source_image,
+                    output_path=raw_path,
+                    num_inference_steps=20,
+                )
+
+                scores = score_video(raw_path, active_prompt, state["user_id"])
+
+                # Track best candidate (bootstrap — keep highest scorer)
+                if best_score is None or scores.get("overall", 0) > best_score.get("overall", 0):
+                    best_video = raw_path
+                    best_score = scores
+
+                add_prompt(active_prompt, scores, brief=brief, user_id=user_id)
+
+                if scores.get("passed"):
+                    print(f"  [Generate] Passed on attempt {attempt} (overall={scores['overall']:.0f})")
+                    break
+
+                if attempt < max_attempts:
+                    print(f"  [Generate] Score {scores.get('overall', 0):.0f} < {SCORE_THRESHOLD} — mutating prompt...")
+                    active_prompt = mutate_prompt(active_prompt, scores)
+                else:
+                    print(f"  [Generate] Max attempts reached — using best candidate (overall={best_score.get('overall', 0):.0f})")
+
+            state["local_video"] = best_video
+            state["generate_scores"] = best_score
+            state["final_prompt_used"] = active_prompt
             state["stage"] = "EDIT"
             _save_state(state)
 
@@ -180,6 +215,18 @@ def run_pipeline(
             caption = _generate_caption(brief, platform, user_id)
             state["edited_video"] = edited
             state["caption"] = caption
+            state["stage"] = "SCORE"
+            _save_state(state)
+
+        # ── Stage 4b: SCORE edited video ─────────────────────────────────────────
+        if state["stage"] == "SCORE":
+            from scorer import score_video
+            scores = state.get("generate_scores") or score_video(
+                state["edited_video"], state.get("final_prompt_used", state["final_prompt"]), user_id
+            )
+            state["final_scores"] = scores
+            passed = scores.get("passed", True)  # if no scores, let it through
+            print(f"\n  Final score: overall={scores.get('overall', 'N/A')} | passed={passed}")
             state["stage"] = "APPROVE"
             _save_state(state)
 
@@ -187,11 +234,19 @@ def run_pipeline(
         if state["stage"] == "APPROVE":
             print("\n[5/5] Queuing for approval...")
             from approval import add_to_queue
-            job = add_to_queue(
+            scores = state.get("final_scores", {})
+            score_summary = (
+                f"Score: {scores.get('overall', '?'):.0f}/100 — "
+                f"cat={scores.get('cat_recognized', '?'):.0f} "
+                f"location={scores.get('location_appropriate', '?'):.0f} "
+                f"brand={scores.get('brand_alignment', '?'):.0f}"
+            ) if scores else ""
+
+            add_to_queue(
                 job_id=job_id,
                 video_path=state["edited_video"],
                 platform=platform,
-                caption=state["caption"],
+                caption=state["caption"] + (f"\n\n[{score_summary}]" if score_summary else ""),
                 brief=brief,
             )
             state["approval_id"] = job_id
@@ -199,6 +254,8 @@ def run_pipeline(
             _save_state(state)
             print(f"\n   Ready for review — open the Approval tab in the app.")
             print(f"   Job ID: {job_id}")
+            if score_summary:
+                print(f"   {score_summary}")
 
     except Exception as e:
         state["error"] = str(e)

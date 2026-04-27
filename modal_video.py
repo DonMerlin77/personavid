@@ -17,8 +17,11 @@ import io
 import os
 import base64
 from pathlib import Path
-from dotenv import load_dotenv
-load_dotenv(Path(__file__).parent / ".env")
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).parent / ".env")
+except ImportError:
+    pass
 
 HF_TOKEN = os.getenv("HF_TOKEN", "")
 
@@ -35,10 +38,11 @@ image = (
         extra_options="--index-url https://download.pytorch.org/whl/cu124",
     )
     .pip_install(
-        "diffusers>=0.32.0",
-        "transformers>=4.44.0",
+        "diffusers>=0.32.0,<0.35.0",
+        "transformers>=4.44.0,<5.0.0",
         "accelerate>=0.33.0",
         "sentencepiece",
+        "ftfy",
         "imageio[ffmpeg]",
         "Pillow",
         "numpy",
@@ -83,7 +87,7 @@ def text_to_video(
     from diffusers.utils import export_to_video
     import tempfile
 
-    model_id = "Wan-AI/Wan2.1-T2V-1.3B"
+    model_id = "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
     cache_dir = "/models/wan-t2v-1.3b"
 
     print(f"Loading Wan T2V 1.3B from {cache_dir}...")
@@ -123,8 +127,8 @@ def text_to_video(
 
 @app.function(
     image=image,
-    gpu="A10G",
-    timeout=300,
+    gpu="A100",
+    timeout=600,
     volumes={"/models": model_volume},
     secrets=[hf_secret],
 )
@@ -149,7 +153,7 @@ def image_to_video(
     from PIL import Image
     import tempfile
 
-    model_id = "Wan-AI/Wan2.1-I2V-14B-480P"
+    model_id = "Wan-AI/Wan2.1-I2V-14B-480P-Diffusers"
     cache_dir = "/models/wan-i2v-14b"
 
     print(f"Loading Wan I2V 14B from {cache_dir}...")
@@ -158,8 +162,7 @@ def image_to_video(
         cache_dir=cache_dir,
         torch_dtype=torch.bfloat16,
     )
-    pipe.to("cuda")
-    pipe.enable_model_cpu_offload()
+    pipe.enable_model_cpu_offload()  # manages GPU moves per-module — do NOT call pipe.to("cuda") first
 
     # Decode source image
     img_bytes = base64.b64decode(image_b64)
@@ -240,10 +243,13 @@ def generate_video_modal(
 
 @app.local_entrypoint()
 def main():
+    import pathlib
     prompt = (
-        "An orange tabby cat sitting on a cozy living room rug, "
-        "warm natural lighting, handheld candid footage, calm mood"
+        "An orange tabby cat sitting near a glowing moon lamp on a shelf, "
+        "warm natural lighting, handheld candid footage, calm curious mood, "
+        "cozy living room background"
     )
-    print("Running test generation...")
-    out = generate_video_modal(prompt, output_path="/tmp/modal_test.mp4")
+    source = str(pathlib.Path(__file__).parent / "references" / "carter.png")
+    print("Running I2V test with carter.png (sequential CPU offload)...")
+    out = generate_video_modal(prompt, image_path=source, output_path="/tmp/modal_i2v_test.mp4")
     print(f"Saved to {out}")

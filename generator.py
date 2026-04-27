@@ -135,31 +135,29 @@ def refine_prompt_with_claude(raw_prompt: str, brief: str,
                                 max_chars: int = 950) -> str:
     """
     Use Claude to polish the generation prompt into the best possible
-    video generation instruction for Kling/Runway.
-    Enforces max_chars limit (default 950 — safe under Runway's 1000 cap).
+    video generation instruction for Wan-2.1.
+    Enforces max_chars limit (default 950 — safe under model caps).
+    Injects personavid_brain as system prompt for brand-aware refinement.
     """
+    from brain import video_brain
     response = client.messages.create(
         model="claude-haiku-4-5-20251001",
         max_tokens=400,
+        system=video_brain(),
         messages=[{
             "role": "user",
-            "content": f"""You are an expert at writing video generation prompts for AI tools like Kling AI and Runway.
-
-Take this draft prompt and rewrite it to be maximally effective for AI video generation.
-STRICT LIMIT: {max_chars} characters including spaces. Count carefully — this is a hard limit.
-No markdown, no bold, no bullet points — plain text only.
-Priority order if you must cut: keep subject description, lighting, camera motion, mood. Cut technical specs last.
-Output ONLY the final prompt, nothing else.
-
-Ad type: {ad_type}
-Creative brief: {brief}
-
-Draft prompt:
-{raw_prompt}"""
-        }]
+            "content": (
+                f"Rewrite this draft into a final Wan-2.1 video generation prompt.\n"
+                f"STRICT LIMIT: {max_chars} characters. Plain text only. No markdown.\n"
+                f"Keep: subject identity, lighting, camera motion, mood. Cut technical specs last.\n"
+                f"Output ONLY the final prompt.\n\n"
+                f"Ad type: {ad_type}\n"
+                f"Creative brief: {brief}\n\n"
+                f"Draft:\n{raw_prompt}"
+            ),
+        }],
     )
     result = response.content[0].text.strip()
-    # Hard truncate as safety net
     if len(result) > max_chars:
         result = result[:max_chars].rsplit(" ", 1)[0]
     return result
@@ -516,9 +514,64 @@ def generate_video(user_id: str, brief: str,
         json.dump(result, f, indent=2)
 
     if verbose:
-        print(f"\n  📁 Result saved: {log_path}")
+        print(f"\n  Result saved: {log_path}")
 
     return result
+
+
+def bootstrap_generate(
+    user_id: str,
+    brief: str,
+    n_candidates: int = 3,
+    image_path: str | None = None,
+    verbose: bool = True,
+) -> dict:
+    """
+    Bootstrap candidate selection: generate n_candidates videos with different
+    seeds, score all, return the best-scoring one.
+
+    More expensive (n× GPU time) but higher hit rate for brand-quality output.
+    Uses Modal parallel submission — all n jobs run concurrently.
+    """
+    from modal_video import generate_video_modal
+    from scorer import score_video
+    from prompt_bank import add_prompt
+
+    result = generate_video(user_id=user_id, brief=brief, backend="prompt", verbose=verbose)
+    prompt = result["final_prompt"]
+
+    if verbose:
+        print(f"\n  [Bootstrap] Generating {n_candidates} candidates for scoring...")
+
+    candidates = []
+    seeds = [42 + i * 17 for i in range(n_candidates)]
+
+    for i, seed in enumerate(seeds, 1):
+        out_path = str(OUTPUTS / f"{user_id}_bootstrap_{i}_{datetime.now().strftime('%H%M%S')}.mp4")
+        if verbose:
+            print(f"  [Bootstrap] Candidate {i}/{n_candidates} (seed={seed})...")
+        generate_video_modal(
+            prompt=prompt,
+            image_path=image_path,
+            output_path=out_path,
+            num_inference_steps=20,
+        )
+        scores = score_video(out_path, prompt, user_id)
+        candidates.append({"path": out_path, "scores": scores, "seed": seed})
+        add_prompt(prompt, scores, brief=brief, user_id=user_id)
+
+    best = max(candidates, key=lambda c: c["scores"].get("overall", 0))
+
+    if verbose:
+        all_scores = [f"{c['scores'].get('overall', 0):.0f}" for c in candidates]
+        print(f"  [Bootstrap] Scores: {all_scores} — best: {best['scores'].get('overall', 0):.0f}")
+
+    return {
+        "prompt": prompt,
+        "local_video": best["path"],
+        "scores": best["scores"],
+        "all_candidates": candidates,
+    }
 
 
 # ── CLI ─────────────────────────────────────────────────────────────────────────
