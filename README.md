@@ -11,7 +11,7 @@ PersonaVid was built to answer a practical question: can one person run a full s
 - **Generation** (`generator.py`, `modal_video.py`, `modal_extract_batch.py`) — runs diffusion video generation on Modal GPU containers, so the heavy compute stays off the local machine and scales on demand.
 - **Compositing** (`compositor.py`, `video_editor.py`, `backgrounds.py`) — assembles generated and real footage, handles backgrounds, and cuts the final edit.
 - **Scoring and approval** (`scorer.py`, `analyzer.py`, `approval.py`) — grades candidate outputs against quality criteria before anything ships.
-- **Publishing** (`publisher.py`, `performance_reader.py`) — pushes finished clips out and reads back performance so the pipeline can learn what works.
+- **Publishing** (`publisher.py`, `performance_reader.py`) — exports finished clips for scheduling (TikTok via an export folder, Instagram, Pinterest) and reads back performance.
 
 ## Design notes
 
@@ -23,4 +23,6 @@ Python, Modal (serverless GPU), diffusion-based video generation, a modular agen
 
 ## Status
 
-Working pipeline under active development. Built and maintained by Thomas Semrad.
+Built April to August 2026 and paused since. Text-to-video and image-to-video generation, scoring and export
+worked end to end; TikTok's API is closed to single accounts, so publishing went through an export folder for a
+scheduling tool instead. Built by Thomas Semrad.
